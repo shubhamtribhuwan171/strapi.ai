@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "products",
+  "collectionName": "blogs",
   "info": {
-    "singularName": "product",
-    "pluralName": "products",
-    "displayName": "product",
+    "singularName": "blog",
+    "pluralName": "blogs",
+    "displayName": "Blog",
     "description": ""
   },
   "options": {
@@ -12,10 +12,14 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Bio": {
       "type": "text"
     },
-    "images": {
+    "Image": {
       "type": "media",
       "multiple": true,
       "required": false,
@@ -23,13 +27,7 @@
         "images"
       ]
     },
-    "bio": {
-      "type": "richtext"
-    },
-    "slug": {
-      "type": "uid"
-    },
-    "biotext": {
+    "imgurl": {
       "type": "text"
     }
   }
