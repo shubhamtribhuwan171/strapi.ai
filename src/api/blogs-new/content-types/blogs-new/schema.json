@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "blogs_news",
+  "info": {
+    "singularName": "blogs-new",
+    "pluralName": "blogs-news",
+    "displayName": "BlogsNew"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Bio": {
+      "type": "text"
+    },
+    "imgurl": {
+      "type": "text"
+    },
+    "extraInfoShort": {
+      "type": "string"
+    },
+    "extraInfoLong": {
+      "type": "string"
+    }
+  }
+}

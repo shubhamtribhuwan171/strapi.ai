@@ -501,6 +501,7 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
     Bio: Schema.Attribute.Text;
     Image: Schema.Attribute.Media<'images', true>;
     imgurl: Schema.Attribute.Text;
+    orgImage: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -510,6 +511,37 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::blog.blog'>;
+  };
+}
+
+export interface ApiBlogsNewBlogsNew extends Struct.CollectionTypeSchema {
+  collectionName: 'blogs_news';
+  info: {
+    singularName: 'blogs-new';
+    pluralName: 'blogs-news';
+    displayName: 'BlogsNew';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Schema.Attribute.String;
+    Bio: Schema.Attribute.Text;
+    imgurl: Schema.Attribute.Text;
+    extraInfoShort: Schema.Attribute.String;
+    extraInfoLong: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::blogs-new.blogs-new'
+    >;
   };
 }
 
@@ -951,6 +983,7 @@ declare module '@strapi/strapi' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::blog.blog': ApiBlogBlog;
+      'api::blogs-new.blogs-new': ApiBlogsNewBlogsNew;
       'api::product.product': ApiProductProduct;
       'api::product-2.product-2': ApiProduct2Product2;
       'admin::permission': AdminPermission;

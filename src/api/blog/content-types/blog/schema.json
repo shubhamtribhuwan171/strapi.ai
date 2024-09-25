@@ -29,6 +29,9 @@
     },
     "imgurl": {
       "type": "text"
+    },
+    "orgImage": {
+      "type": "string"
     }
   }
 }
