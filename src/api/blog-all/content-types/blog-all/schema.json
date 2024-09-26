@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "blog_alls",
+  "info": {
+    "singularName": "blog-all",
+    "pluralName": "blog-alls",
+    "displayName": "blogAll"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "bio": {
+      "type": "text"
+    },
+    "fullBio": {
+      "type": "text"
+    },
+    "image": {
+      "type": "text"
+    },
+    "extra": {
+      "type": "text"
+    }
+  }
+}

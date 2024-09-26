@@ -513,6 +513,37 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiBlogAllBlogAll extends Struct.CollectionTypeSchema {
+  collectionName: 'blog_alls';
+  info: {
+    singularName: 'blog-all';
+    pluralName: 'blog-alls';
+    displayName: 'blogAll';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    bio: Schema.Attribute.Text;
+    fullBio: Schema.Attribute.Text;
+    image: Schema.Attribute.Text;
+    extra: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::blog-all.blog-all'
+    >;
+  };
+}
+
 export interface ApiProductProduct extends Struct.CollectionTypeSchema {
   collectionName: 'products';
   info: {
@@ -951,6 +982,7 @@ declare module '@strapi/strapi' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::blog.blog': ApiBlogBlog;
+      'api::blog-all.blog-all': ApiBlogAllBlogAll;
       'api::product.product': ApiProductProduct;
       'api::product-2.product-2': ApiProduct2Product2;
       'admin::permission': AdminPermission;
